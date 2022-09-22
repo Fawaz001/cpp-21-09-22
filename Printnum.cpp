@@ -1,29 +1,32 @@
-#include<iostream>
+#include <iostream>
+#include <string>
 using namespace std;
-
-class PrintNumber
-{
+class IntegerI{
+private:
+	int i;
 public:
-    static void printn(int n)
-    {
-        cout << n << endl;
-    }
-
-    static void printn(float n)
-    {
-        cout << n << endl;
-    }
-
-    static void printn(double n)
-    {
-        cout << n << endl;
-    }
+	IntegerI(int i){
+		this->i=i;
+	}
+	void printNum(){
+		cout<<"i = "<<i<<"\n";
+	}
 };
-
-int main()
-{
-    PrintNumber::printn(7);
-    PrintNumber::printn(7.123);
-    PrintNumber::printn(7.123435);
-    return 0;
+class IntegerJ:public IntegerI{
+private:
+	int j;
+public:
+	IntegerJ(int i,int j):IntegerI(i){
+		this->j=j;
+	}
+	void printNum(){
+		IntegerI::printNum();
+		cout<<"j = "<<j<<"\n";
+	}
+};
+int main() {
+	IntegerJ integerJ(5,6);
+	integerJ.printNum();
+	system("pause");
+	return 0;
 }
